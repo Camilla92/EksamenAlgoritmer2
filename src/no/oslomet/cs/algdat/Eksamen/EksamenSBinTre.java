@@ -9,10 +9,7 @@ import java.util.StringJoiner;
 public class EksamenSBinTre<T> {
     private static final class Node<T>   // en indre nodeklasse
     {
-
-
-
-
+        
         private T verdi;                   // nodens verdi
         private Node<T> venstre, høyre;    // venstre og høyre barn
         private Node<T> forelder;          // forelder
