@@ -4,4 +4,5 @@ package no.oslomet.cs.algdat.Eksamen;
 public interface Oppgave<T>  // legges under hjelpeklasser
 {
     void utførOppgave(T t);    // f.eks. utskrift til konsollet
+    //oppgave til eksamen
 }

@@ -10,9 +10,8 @@ public class EksamenSBinTre<T> {
     private static final class Node<T>   // en indre nodeklasse
     {
 
-        //fkafjjeijfijei
 
-        private int ihehe;
+
 
         private T verdi;                   // nodens verdi
         private Node<T> venstre, høyre;    // venstre og høyre barn
