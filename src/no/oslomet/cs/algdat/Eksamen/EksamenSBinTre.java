@@ -88,7 +88,7 @@ public class EksamenSBinTre<T> {
         //kopi av kode 5.2.3
         Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
 
-        Node<T> p = rot, forelder = null;               // p starter i roten
+        Node<T> p = this.rot, forelder = null;               // p starter i roten
         int cmp = 0;                             // hjelpevariabel
 
         while (p != null)       // fortsetter til p er ute av treet
@@ -100,10 +100,11 @@ public class EksamenSBinTre<T> {
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<T>(verdi, null, null, forelder);                   // oppretter en ny node
+        p = new Node<T>(verdi, null, null, forelder);
+        //p = new Node<T>(verdi);  // oppretter en ny node
 
         if (forelder == null) {
-            rot = p;// p blir rotnode
+            this.rot = p;// p blir rotnode
         }
         else if (cmp < 0){
             forelder.venstre = p; // venstre barn til q
