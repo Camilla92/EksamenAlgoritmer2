@@ -124,32 +124,32 @@ public class EksamenSBinTre<T> {
 
     //oppgave 2
     public int antall(T verdi) {
-        //sjekker først om listen er tom.
-        antall=0;
-        if(tom()){
-            antall=0;
-        }
-        //må traversere hele listen først:
-        Node<T> node = rot;
-        if(node != null){
-            if (inneholder(verdi)){
-                antall++;
-            }
-            else {
-                antall=0;
-            }
-
-        }
-
+        //kode fra kompendiet oppgave 5.2.6 (2)
 
         // Den skal returnere antall forekomster av ​verdi​ i treet.
 
         // Det er tillatt med duplikater og det betyr at en verdi kan forekomme flere ganger.
 
         // Hvis ​verdi​ ikke er i treet (​null​ er ikke i treet), skal metoden returnere 0.
+        Node<T> p = rot;
+        int antallVerdi = 0;
+
+        while (p != null)
+        {
+            int cmp = comp.compare(verdi,p.verdi);
+            if (cmp < 0) p = p.venstre;
+            else
+            {
+                if (cmp == 0) antallVerdi++;
+                p = p.høyre;
+            }
+        }
+        return antallVerdi;
 
 
-        return antall;
+
+
+
 
     }
 
