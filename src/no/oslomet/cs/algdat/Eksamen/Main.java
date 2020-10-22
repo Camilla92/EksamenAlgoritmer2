@@ -25,7 +25,9 @@ public class Main {
 
             tre4.leggInn(verdi);
         }
-        System.out.println(tre.antall()); //utskrift 10
+        System.out.println(tre4.antall()); //utskrift 10
+        System.out.println(tre4.leggInn(4));
+        System.out.println(tre4.antall()); //utskrift 11
 
     }
 }

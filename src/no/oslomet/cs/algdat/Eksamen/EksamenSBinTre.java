@@ -24,6 +24,10 @@ public class EksamenSBinTre<T> {
             this(verdi, null, null, forelder);
         }
 
+        public Node(T verdi) {
+            this.verdi= verdi;
+        }
+
         @Override
         public String toString() {
             return "" + verdi;
@@ -85,33 +89,26 @@ public class EksamenSBinTre<T> {
 
     public boolean leggInn(T verdi) {
 
-        //kopi av kode 5.2.3
+        //kopi av kode 5.2.3 a
         Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
 
-        Node<T> p = this.rot, forelder = null;               // p starter i roten
-        int cmp = 0;                             // hjelpevariabel
+        Node<T> p = rot, forelder = null;               // p starter i roten
+        int midlertidig = 0;                             // hjelpevariabel
 
         while (p != null)       // fortsetter til p er ute av treet
         {
-            forelder = p;                                 // q er forelder til p
-            cmp = comp.compare(verdi,p.verdi);     // bruker komparatoren
-            p = cmp < 0 ? p.venstre : p.høyre;     // flytter p
+            forelder = p;                                 // forelder er forelder til p
+            midlertidig = comp.compare(verdi,p.verdi);     // bruker komparatoren
+            p = midlertidig < 0 ? p.venstre : p.høyre;     // flytter p
         }
 
-        // p er nå null, dvs. ute av treet, q er den siste vi passerte
+        // p er nå null, dvs. ute av treet, forelder er den siste vi passerte
 
-        p = new Node<T>(verdi, null, null, forelder);
-        //p = new Node<T>(verdi);  // oppretter en ny node
+        p = new Node<T>(verdi);                   // oppretter en ny node
 
-        if (forelder == null) {
-            this.rot = p;// p blir rotnode
-        }
-        else if (cmp < 0){
-            forelder.venstre = p; // venstre barn til q
-        }
-        else {
-            forelder.høyre = p;  // høyre barn til q
-        }
+        if (forelder == null) rot = p;                  // p blir rotnode
+        else if (midlertidig < 0) forelder.venstre = p;         // venstre barn til forelder
+        else forelder.høyre = p;                        // høyre barn til forelder
 
         antall++;                                // én verdi mer i treet
         return true;                             // vellykket innlegging
