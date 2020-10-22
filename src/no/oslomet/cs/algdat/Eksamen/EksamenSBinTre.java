@@ -125,15 +125,22 @@ public class EksamenSBinTre<T> {
     //oppgave 2
     public int antall(T verdi) {
         //sjekker først om listen er tom.
+        antall=0;
         if(tom()){
             antall=0;
         }
-        else if(inneholder(verdi)){
-            antall++;
+        //må traversere hele listen først:
+        Node<T> node = rot;
+        if(node != null){
+            if (inneholder(verdi)){
+                antall++;
+            }
+            else {
+                antall=0;
+            }
+
         }
-        else{
-            antall=0;
-        }
+
 
         // Den skal returnere antall forekomster av ​verdi​ i treet.
 

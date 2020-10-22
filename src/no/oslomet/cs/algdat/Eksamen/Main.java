@@ -33,5 +33,19 @@ public class Main {
         //test for oppgave 2
         System.out.println("Oppgave 2");
 
+        Integer[] b={4,7,2,9,4,10,8,7,4,6};
+        EksamenSBinTre<Integer> tre5 = new EksamenSBinTre<>(Comparator.naturalOrder());
+        for(int verdi: b){
+            tre5.leggInn(verdi);
+        }
+
+        System.out.println(tre5.antall());//10
+        System.out.println(tre5.antall(5));//0
+
+        System.out.println(tre5.antall(4));//3
+        System.out.println(tre5.antall(7));//2
+        System.out.println(tre5.antall(10));//1
+
+
     }
 }
