@@ -128,7 +128,12 @@ public class EksamenSBinTre<T> {
         if(tom()){
             antall=0;
         }
-        
+        else if(inneholder(verdi)){
+            antall++;
+        }
+        else{
+            antall=0;
+        }
 
         // Den skal returnere antall forekomster av ​verdi​ i treet.
 

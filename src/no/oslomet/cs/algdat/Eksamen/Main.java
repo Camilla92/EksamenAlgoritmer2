@@ -30,5 +30,8 @@ public class Main {
         System.out.println(tre4.leggInn(4));
         System.out.println(tre4.antall()); //utskrift 11
 
+        //test for oppgave 2
+        System.out.println("Oppgave 2");
+
     }
 }
