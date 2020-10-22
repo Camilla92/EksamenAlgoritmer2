@@ -156,9 +156,9 @@ public class EksamenSBinTre<T> {
 
     //oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        //Førstepostorden skal returnere første node post orden med p som rot,
+        //Førstepostorden skal returnere første node postorden med p som rot,
 
-        while (true)
+       /*while (true)
         {
             if (p.venstre != null) {
                 p = p.venstre;
@@ -169,7 +169,19 @@ public class EksamenSBinTre<T> {
                 return p;
             }
 
+        }*/
+
+        //if (tom()) throw new NoSuchElementException("Treet er tomt!");
+
+        //Node<T> p = rot;
+        while (true)
+        {
+            //sjekker om p har venstre og høyre barn.
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else return p;
         }
+
 
 
 
