@@ -89,29 +89,29 @@ public class EksamenSBinTre<T> {
 
     public boolean leggInn(T verdi) {
 
-        //kopi av kode 5.2.3 a
-        Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
+        //kopi av kode 5.2.11 b
 
-        Node<T> p = rot, forelder = null;               // p starter i roten
-        int midlertidig = 0;                             // hjelpevariabel
+        Node<T> p = rot;    // p starter i roten
+        Node<T> q = null;   // hjelpevariabel
+        int cmp = 0;        // hjelpevariabel
 
-        while (p != null)       // fortsetter til p er ute av treet
+        while (p != null)
         {
-            forelder = p;                                 // forelder er forelder til p
-            midlertidig = comp.compare(verdi,p.verdi);     // bruker komparatoren
-            p = midlertidig < 0 ? p.venstre : p.høyre;     // flytter p
+            q = p;                                // q er forelder til p
+            cmp = comp.compare(verdi,p.verdi);    // bruker komparatoren
+            p = cmp < 0 ? p.venstre : p.høyre;    // flytter p
         }
 
-        // p er nå null, dvs. ute av treet, forelder er den siste vi passerte
+        p = new Node<>(verdi,q);  // q er forelder til ny node
 
-        p = new Node<T>(verdi);                   // oppretter en ny node
+        if (q == null) rot = p;
+        else if (cmp < 0) q.venstre = p;
+        else q.høyre = p;
 
-        if (forelder == null) rot = p;                  // p blir rotnode
-        else if (midlertidig < 0) forelder.venstre = p;         // venstre barn til forelder
-        else forelder.høyre = p;                        // høyre barn til forelder
+        antall++;     // én verdi mer i treet
+        endringer++;  // innlegging er en endring
 
-        antall++;                                // én verdi mer i treet
-        return true;                             // vellykket innlegging
+        return true;  // vellykket innlegging
     }
 
     public boolean fjern(T verdi) {
@@ -147,7 +147,7 @@ public class EksamenSBinTre<T> {
             }
         }
         return antallVerdi;
-        
+
     }
 
     public void nullstill() {
