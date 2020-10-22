@@ -122,8 +122,23 @@ public class EksamenSBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //oppgave 2
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        //sjekker først om listen er tom.
+        if(tom()){
+            antall=0;
+        }
+        
+
+        // Den skal returnere antall forekomster av ​verdi​ i treet.
+
+        // Det er tillatt med duplikater og det betyr at en verdi kan forekomme flere ganger.
+
+        // Hvis ​verdi​ ikke er i treet (​null​ er ikke i treet), skal metoden returnere 0.
+
+
+        return antall;
+
     }
 
     public void nullstill() {
