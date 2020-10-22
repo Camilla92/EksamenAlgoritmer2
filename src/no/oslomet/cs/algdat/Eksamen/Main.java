@@ -46,6 +46,11 @@ public class Main {
         System.out.println(tre5.antall(7));//2
         System.out.println(tre5.antall(10));//1
 
+        //test for oppgave 3
+        System.out.println("Oppgave 3");
+
+        //System.out.println(tre5.);
+
 
     }
 }

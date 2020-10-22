@@ -158,12 +158,30 @@ public class EksamenSBinTre<T> {
     private static <T> Node<T> førstePostorden(Node<T> p) {
         //Førstepostorden skal returnere første node post orden med p som rot,
 
+        while (true)
+        {
+            if (p.venstre != null) {
+                p = p.venstre;
+                return p;
+            }
+            else if (p.høyre != null) {
+                p = p.høyre;
+                return p;
+            }
+
+        }
+
+
+
     }
     //oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
+
+
+        return p;
         //nestePostorden skal returnere den noden som kommer etter​p​i​postorden.​
         // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
-        
+
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
