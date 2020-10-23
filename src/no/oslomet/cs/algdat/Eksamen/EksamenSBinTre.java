@@ -317,6 +317,7 @@ public class EksamenSBinTre<T> {
 
     public ArrayList<T> serialize() {
 
+        //hentet fra: https://howtodoinjava.com/java/collections/arraylist/serialize-deserialize-arraylist/
         ArrayList<T> liste= new ArrayList();
 
         try
