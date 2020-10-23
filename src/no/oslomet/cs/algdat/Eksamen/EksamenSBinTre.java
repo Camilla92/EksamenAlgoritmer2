@@ -243,7 +243,39 @@ public class EksamenSBinTre<T> {
         //Du skal bruke funksjonen nestePostorden fra forrige oppgave.
         // Start med å finne den første noden ​p​ i postorden.
         // Deretter vil (f.eks. i en while-løkke) setningen: ​p = nestePostorden(p);​ gi den neste. Osv. til​ p​ blir ​null​.
-        
+
+        //kode fra kompendiet 5.1.15  (1)
+        if (tom()) return;  // tomt tre
+
+        Node<T> p = rot;
+
+        while (true) // flytter p til den første i postorden
+        {
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else break;
+        }
+
+        oppgave.utførOppgave(p.verdi);
+
+        while (true)
+        {
+            if (p == rot) break;  // den siste i postorden
+
+            Node<T> f = p.forelder;
+            if (f.høyre == null || p == f.høyre) p = f;
+            else
+            {
+                p = f.høyre;
+                while (true)
+                {
+                    if (p.venstre != null) p = p.venstre;
+                    else if (p.høyre != null) p = p.høyre;
+                    else break;
+                }
+            }
+            oppgave.utførOppgave(p.verdi);
+        }
 
     }
 
