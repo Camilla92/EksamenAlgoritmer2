@@ -115,17 +115,18 @@ public class EksamenSBinTre<T> {
         return true;  // vellykket innlegging
     }
 
+    //oppgave 6
     public boolean fjern(T verdi) {
         //kode fra kompendiet: 5.2.8 d)
         if (verdi == null) return false;  // treet har ingen nullverdier
 
-        Node<T> p = rot, q = null;   // q skal være forelder til p
+        Node<T> p = rot, forelder = p.forelder;   // forelder skal være forelder til p
 
         while (p != null)            // leter etter verdi
         {
             int cmp = comp.compare(verdi,p.verdi);      // sammenligner
-            if (cmp < 0) { q = p; p = p.venstre; }      // går til venstre
-            else if (cmp > 0) { q = p; p = p.høyre; }   // går til høyre
+            if (cmp < 0) { forelder = p; p = p.venstre; }      // går til venstre
+            else if (cmp > 0) { forelder = p; p = p.høyre; }   // går til høyre
             else break;    // den søkte verdien ligger i p
         }
         if (p == null) return false;   // finner ikke verdi
@@ -134,8 +135,8 @@ public class EksamenSBinTre<T> {
         {
             Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
             if (p == rot) rot = b;
-            else if (p == q.venstre) q.venstre = b;
-            else q.høyre = b;
+            else if (p == forelder.venstre) forelder.venstre = b;
+            else forelder.høyre = b;
         }
         else  // Tilfelle 3)
         {
@@ -156,8 +157,22 @@ public class EksamenSBinTre<T> {
         return true;
     }
 
+    //oppgave 6
     public int fjernAlle(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        //kode fra kompendiet: 5.2.8 (3)
+        int verdiAntall = 0;
+        while (fjern(verdi)) {
+            verdiAntall++;
+        }
+
+        return verdiAntall;
+        /*Den skal fjerne alle forekomstene av ​verdi​ i treet.
+         Husk at duplikater er tillatt.
+         Dermed kan en og samme verdi ligge flere steder i treet.
+         Metoden skal returnere antallet som ble fjernet.
+         Hvis treet er tomt, skal 0 returneres.
+         */
+
     }
 
     //oppgave 2
@@ -351,6 +366,7 @@ public class EksamenSBinTre<T> {
 
     }
 
+    //oppgave 5
     public ArrayList<T> serialize() {
 
 
@@ -392,7 +408,7 @@ public class EksamenSBinTre<T> {
 
 
 
-
+    //oppgave 5
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
 
 
