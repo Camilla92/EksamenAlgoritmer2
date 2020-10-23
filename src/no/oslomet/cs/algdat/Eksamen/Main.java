@@ -53,9 +53,7 @@ public class Main {
         System.out.println(tre5.toStringPostOrder());
 
         //test for oppgave 4
-
-
-
+        System.out.println("Oppgave 4");
         tre5.postorden(c -> System.out.print(c + " "));
     }
 }

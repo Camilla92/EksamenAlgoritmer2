@@ -218,7 +218,7 @@ public class EksamenSBinTre<T> {
 
 
             //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
-            else if (forelder.høyre == p) {
+           /* else if (forelder.høyre == p) {
                 return forelder;//riktig
             }
             //Hvis p er venstre barn til sin forelder f, gjelder:
@@ -232,7 +232,24 @@ public class EksamenSBinTre<T> {
                 else if(forelder.høyre!= null) {
                     return forelder.høyre;
                 }
+            }*/
+        if (forelder.høyre == null || p == forelder.høyre) {
+            p = forelder;
+        }
+        else
+        {
+            p = forelder.høyre;
+            while (true)
+            {
+                if (p.venstre != null){
+                    p = p.venstre;
+                }
+                else if (p.høyre != null){
+                    p = p.høyre;
+                }
+                else break;
             }
+        }
 
 
         return p;
@@ -281,10 +298,22 @@ public class EksamenSBinTre<T> {
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
+
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if(p ==null){
+            return;
+        }
+
+
+        postordenRecursive(p.venstre, oppgave);
+        postordenRecursive(p.høyre, oppgave);
+        oppgave.utførOppgave(p.verdi);
+
+        //	PrintPostOrder(node.leftChild);
+        //	PrintPostOrder (node.rightChild);
+        //System.out.println(node.value);
     }
 
     public ArrayList<T> serialize() {
