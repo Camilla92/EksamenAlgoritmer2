@@ -2,7 +2,6 @@ package no.oslomet.cs.algdat.Eksamen;
 
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class EksamenSBinTre<T> {
@@ -317,26 +316,44 @@ public class EksamenSBinTre<T> {
 
     public ArrayList<T> serialize() {
 
-        //hentet fra: https://howtodoinjava.com/java/collections/arraylist/serialize-deserialize-arraylist/
-        ArrayList<T> liste= new ArrayList();
 
-        try
+        //kode hentet fra kompendiet: 5.1.6 (d)
+        if (tom()) return null;                   // tomt tre
+        //gjort om og brukt ArrayDeque istedenfor KØ
+        ArrayDeque<Node<T>> kø= new ArrayDeque<>();
+
+        ArrayList<T> liste= new ArrayList<>();
+        //Kø<Node<T>> kø = new TabellKø<>();   // Se Avsnitt 4.2.2
+        kø.add(rot);                     // legger inn roten
+        liste.add((T) rot);
+
+
+        while (!kø.isEmpty())                    // så lenge som køen ikke er tom
         {
-            FileOutputStream fos = new FileOutputStream("listData");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(liste);
-            oos.close();
-            fos.close();
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        return liste;
+            //liste.add((T) rot);
+            Node<T> p = kø.pop();             // tar ut fra køen
+           // System.out.print(p.verdi + " ");   // skriver ut
 
+            if (p.venstre != null) {
+                kø.add(p.venstre);
+                liste.add((T) p.venstre);
+            }
+            if (p.høyre != null) {
+                kø.add(p.høyre);
+                liste.add((T) p.høyre);
+            }
+        }
+
+        return liste;
         // Metodene skal henholdsvis serialisere (lage et kompakt format egnet for lagring til f.eks. fil - array)
-       // Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
+        // Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
         // Arrayet som returneres av serialize skal inneholde verdiene i alle nodene i nivå orden.
     }
+
+
+
+
+
 
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
 
@@ -376,12 +393,31 @@ public class EksamenSBinTre<T> {
     }
 
          */
+        //hentet fra https://dev.to/aryan19694946/how-to-serialize-and-deserialize-arraylist-in-java-5e81
+       /* EksamenSBinTre<K> tre= new EksamenSBinTre<>(c);
+        try {
+            FileInputStream fileInputStream = new FileInputStream("data");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            EksamenSBinTre<K> tre1= new EksamenSBinTre<>(c); objectInputStream.readObject();
+            //ArrayList<String> arrayList = (ArrayList<String>) objectInputStream.readObject();
+
+            System.out.println(tre1);
+
+            fileInputStream.close();
+            objectInputStream.close();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
         // og deserialisere (lage et nytt tre ut ifra et array).
         // Deserialize skal da ta dette arrayet, og legge inn alle verdiene (igjen i nivå orden), og dermed gjenskape treet.
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
+        return tre;
 
+        */
+        return null;
     }
 
 

@@ -59,6 +59,20 @@ public class Main {
         System.out.println();
         System.out.println("Oppgave 4, del 2");
         tre5.postordenRecursive(c -> System.out.print(c + " "));
+        System.out.println();
+
+        //test for oppgave 5
+        System.out.println("Oppgave 5, del 1");
+        System.out.println(tre5.serialize());
+
+        EksamenSBinTre<String> tre6 = new EksamenSBinTre<>(Comparator.naturalOrder());      // en konstruktør
+        String[] verdi = "EIBGAHKLODNMCJF".split("");              // verdier i nivåorden
+        for(String verdier: verdi){
+            tre6.leggInn(verdier);
+        }
+
+
+        System.out.println(tre6.serialize());  // Utskrift: E I B G A H K L O D N M C J F
 
     }
 }
