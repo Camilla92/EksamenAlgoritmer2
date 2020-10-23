@@ -320,28 +320,29 @@ public class EksamenSBinTre<T> {
         //kode hentet fra kompendiet: 5.1.6 (d)
         if (tom()) return null;                   // tomt tre
         //gjort om og brukt ArrayDeque istedenfor KØ
+        // Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
         ArrayDeque<Node<T>> kø= new ArrayDeque<>();
 
         ArrayList<T> liste= new ArrayList<>();
         //Kø<Node<T>> kø = new TabellKø<>();   // Se Avsnitt 4.2.2
         kø.add(rot);                     // legger inn roten
-        liste.add((T) rot);
+            liste.add((T) rot);
 
 
-        while (!kø.isEmpty())                    // så lenge som køen ikke er tom
-        {
-            //liste.add((T) rot);
-            Node<T> p = kø.pop();             // tar ut fra køen
-           // System.out.print(p.verdi + " ");   // skriver ut
+            while (!kø.isEmpty())                    // så lenge som køen ikke er tom
+            {
+                //liste.add((T) rot);
+                Node<T> p = kø.pop();             // tar ut fra køen
+                // System.out.print(p.verdi + " ");   // skriver ut
 
-            if (p.venstre != null) {
-                kø.add(p.venstre);
-                liste.add((T) p.venstre);
-            }
-            if (p.høyre != null) {
-                kø.add(p.høyre);
-                liste.add((T) p.høyre);
-            }
+                if (p.venstre != null) {
+                    kø.add(p.venstre);
+                    liste.add((T) p.venstre);
+                }
+                if (p.høyre != null) {
+                    kø.add(p.høyre);
+                    liste.add((T) p.høyre);
+                }
         }
 
         return liste;
@@ -358,66 +359,34 @@ public class EksamenSBinTre<T> {
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
 
 
-
-        /*ArrayList<K> liste = new ArrayList<>();
-
-       EksamenSBinTre<K> tre;
-
-        try
-        {
-            FileInputStream fis = new FileInputStream("employeeData");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-
-            liste = (ArrayList) ois.readObject();
-            return tre;
-            ois.close();
-            fis.close();
-        }
-        catch (IOException ioe)
-        {
-            ioe.printStackTrace();
-
-        }
-        catch (ClassNotFoundException c)
-        {
-            System.out.println("Class not found");
-            c.printStackTrace();
-
-        }
-
-        //Verify list data
-        for (K listes2 : liste) {
-            System.out.println(liste);
-        }
-
-    }
-
-         */
-        //hentet fra https://dev.to/aryan19694946/how-to-serialize-and-deserialize-arraylist-in-java-5e81
-       /* EksamenSBinTre<K> tre= new EksamenSBinTre<>(c);
-        try {
-            FileInputStream fileInputStream = new FileInputStream("data");
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            EksamenSBinTre<K> tre1= new EksamenSBinTre<>(c); objectInputStream.readObject();
-            //ArrayList<String> arrayList = (ArrayList<String>) objectInputStream.readObject();
-
-            System.out.println(tre1);
-
-            fileInputStream.close();
-            objectInputStream.close();
-
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
         // og deserialisere (lage et nytt tre ut ifra et array).
         // Deserialize skal da ta dette arrayet, og legge inn alle verdiene (igjen i nivå orden), og dermed gjenskape treet.
         //throw new UnsupportedOperationException("Ikke kodet ennå!");
-        return tre;
+        //kø.add(rot);                     // legger inn roten
 
-        */
-        return null;
+
+
+        EksamenSBinTre<K> tre= new EksamenSBinTre<K>(c);
+        //tre.leggInn((K)rot);
+
+        Node<K> p= null;
+
+
+        while (!data.isEmpty())                    // så lenge som køen ikke er tom
+        {
+
+
+            if (p.venstre != null) {
+
+                tre.leggInn((K) p.venstre);
+            }
+            if (p.høyre != null) {
+
+                tre.leggInn((K) p.høyre);
+            }
+        }
+
+        return tre;
     }
 
 
