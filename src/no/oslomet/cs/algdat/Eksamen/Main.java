@@ -50,7 +50,7 @@ public class Main {
         System.out.println("Oppgave 3");
 
         //System.out.println(tre5.);
-
+        System.out.println(tre5.toStringPostOrder());
 
 
     }
