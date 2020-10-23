@@ -302,18 +302,15 @@ public class EksamenSBinTre<T> {
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
+        //brukt inspirasjon fra Programkode 5.1.10 a)
         if(p ==null){
             return;
         }
-
 
         postordenRecursive(p.venstre, oppgave);
         postordenRecursive(p.høyre, oppgave);
         oppgave.utførOppgave(p.verdi);
 
-        //	PrintPostOrder(node.leftChild);
-        //	PrintPostOrder (node.rightChild);
-        //System.out.println(node.value);
     }
 
     public ArrayList<T> serialize() {

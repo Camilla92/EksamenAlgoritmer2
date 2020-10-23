@@ -53,7 +53,12 @@ public class Main {
         System.out.println(tre5.toStringPostOrder());
 
         //test for oppgave 4
-        System.out.println("Oppgave 4");
+        System.out.println("Oppgave 4, del 1 ");
         tre5.postorden(c -> System.out.print(c + " "));
+
+        System.out.println();
+        System.out.println("Oppgave 4, del 2");
+        tre5.postordenRecursive(c -> System.out.print(c + " "));
+
     }
 }
