@@ -159,20 +159,21 @@ public class EksamenSBinTre<T> {
         //Førstepostorden skal returnere første node postorden med p som rot,
 
         //oppgave 5.1.7 (h) fra kompendiet
-        while (true)
+        while (p!=null)
         {
             //sjekker om p har venstre og høyre barn.
             if (p.venstre != null) p = p.venstre;
             else if (p.høyre != null) p = p.høyre;
             //returnerer p.
             else return p;
+            break;
         }
-
+        return p;
     }
     //oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
         //nestePostorden skal returnere den noden som kommer etter​ p ​i​ postorden.​
-        if(førstePostorden(p)!=null){
+       /* if(førstePostorden(p)!=null){
             if (førstePostorden(p).venstre != null) p = p.venstre;
             else if (førstePostorden(p).høyre != null) p = p.høyre;
             //returnerer p.
@@ -181,11 +182,24 @@ public class EksamenSBinTre<T> {
         else{
             // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
             //siste i postorden er rotnoden.
-            p=null;
+            p = null;
         }
-        return p;
-        
+        return p;*/
+       while(p!=null) {
+           if (p.forelder == førstePostorden(p)) {
+               return p;
+           }
 
+           else if (p.forelder == null) {
+               p = null;
+               return p;
+           }
+
+           break;
+
+       }
+
+        return p;
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
