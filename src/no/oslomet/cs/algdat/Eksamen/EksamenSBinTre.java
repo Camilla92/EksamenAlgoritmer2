@@ -166,7 +166,8 @@ public class EksamenSBinTre<T> {
             else if (p.høyre != null) p = p.høyre;
             //returnerer p.
             else return p;
-            break;
+
+
         }
         return p;
     }
@@ -209,24 +210,24 @@ public class EksamenSBinTre<T> {
         Node<T> forelder= p.forelder;
         // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
         //Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
-        if (p.høyre == p.forelder) {
+        if (p.forelder== null) {
             p=null;
             return p;
         }
         //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
-        if(p.forelder == forelder.høyre){
+        if(forelder.høyre== p){
             return forelder;
         }
         //Hvis p er venstre barn til sin forelder f, gjelder:
-        if(p.forelder==forelder.venstre){
+        if(p == forelder.venstre){
             //Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
-            if(p.høyre==null){
+            if(forelder.høyre == null){
                 return forelder;
             }
             //Hvis p ikke er enebarn (dvs. f.høyre er ikke null),
             // så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
             else{
-                return p.høyre;
+                return forelder.høyre;
             }
         }
 
