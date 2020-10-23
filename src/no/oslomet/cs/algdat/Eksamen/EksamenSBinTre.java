@@ -184,12 +184,19 @@ public class EksamenSBinTre<T> {
             //siste i postorden er rotnoden.
             p = null;
         }
+
         return p;*/
+      /* Node <T> forrige= førstePostorden(p);
+       int cmp = 0;
        while(p!=null) {
-           if (p.forelder == førstePostorden(p)) {
+           //p må flyttes.
+
+           if(forrige!=)
+           if (p.høyre == p.forelder) {
                return p;
            }
-
+           // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
+           //siste i postorden er rotnoden.
            else if (p.forelder == null) {
                p = null;
                return p;
@@ -197,7 +204,31 @@ public class EksamenSBinTre<T> {
 
            break;
 
-       }
+       }*/
+
+        Node<T> forelder= p.forelder;
+        // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
+        //Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
+        if (p.høyre == p.forelder) {
+            p=null;
+            return p;
+        }
+        //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+        if(p.forelder == forelder.høyre){
+            return forelder;
+        }
+        //Hvis p er venstre barn til sin forelder f, gjelder:
+        if(p.forelder==forelder.venstre){
+            //Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
+            if(p.høyre==null){
+                return forelder;
+            }
+            //Hvis p ikke er enebarn (dvs. f.høyre er ikke null),
+            // så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
+            else{
+                return p.høyre;
+            }
+        }
 
         return p;
     }
