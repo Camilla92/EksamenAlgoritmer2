@@ -1,6 +1,8 @@
 package no.oslomet.cs.algdat.Eksamen;
 
 
+import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class EksamenSBinTre<T> {
@@ -159,7 +161,7 @@ public class EksamenSBinTre<T> {
         //Førstepostorden skal returnere første node postorden med p som rot,
 
         //oppgave 5.1.7 (h) fra kompendiet
-        while (p!=null)
+        while (true)
         {
             //sjekker om p har venstre og høyre barn.
             if (p.venstre != null) p = p.venstre;
@@ -169,7 +171,7 @@ public class EksamenSBinTre<T> {
 
 
         }
-        return p;
+        //return p;
     }
     //oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
@@ -314,7 +316,22 @@ public class EksamenSBinTre<T> {
     }
 
     public ArrayList<T> serialize() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        ArrayList<T> liste= new ArrayList();
+
+        try
+        {
+            FileOutputStream fos = new FileOutputStream("listData");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(liste);
+            oos.close();
+            fos.close();
+        }
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return liste;
+
         // Metodene skal henholdsvis serialisere (lage et kompakt format egnet for lagring til f.eks. fil - array)
        // Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
         // Arrayet som returneres av serialize skal inneholde verdiene i alle nodene i nivå orden.
@@ -322,9 +339,48 @@ public class EksamenSBinTre<T> {
 
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
 
+
+
+        /*ArrayList<K> liste = new ArrayList<>();
+
+       EksamenSBinTre<K> tre;
+
+        try
+        {
+            FileInputStream fis = new FileInputStream("employeeData");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            liste = (ArrayList) ois.readObject();
+            return tre;
+            ois.close();
+            fis.close();
+        }
+        catch (IOException ioe)
+        {
+            ioe.printStackTrace();
+
+        }
+        catch (ClassNotFoundException c)
+        {
+            System.out.println("Class not found");
+            c.printStackTrace();
+
+        }
+
+        //Verify list data
+        for (K listes2 : liste) {
+            System.out.println(liste);
+        }
+
+    }
+
+         */
+
+
         // og deserialisere (lage et nytt tre ut ifra et array).
         // Deserialize skal da ta dette arrayet, og legge inn alle verdiene (igjen i nivå orden), og dermed gjenskape treet.
         throw new UnsupportedOperationException("Ikke kodet ennå!");
+
     }
 
 
