@@ -215,6 +215,8 @@ public class EksamenSBinTre<T> {
                 p = null;
                 return p;
             }
+
+
             //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
             else if (forelder.høyre == p) {
                 return forelder;//riktig
@@ -235,9 +237,14 @@ public class EksamenSBinTre<T> {
 
         return p;
     }
-
+    //oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        //Du skal implementere den første funksjonen uten bruk av rekursjon og uten bruk av hjelpevariabler som stack / queue.
+        //Du skal bruke funksjonen nestePostorden fra forrige oppgave.
+        // Start med å finne den første noden ​p​ i postorden.
+        // Deretter vil (f.eks. i en while-løkke) setningen: ​p = nestePostorden(p);​ gi den neste. Osv. til​ p​ blir ​null​.
+        
+
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
