@@ -38,7 +38,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EksamenTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="no.oslomet.cs.algdat.Eksamen.Main" />
       <module name="EksamenAlgoritmer" />
@@ -69,8 +69,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EksamenTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.EksamenTest" />
       </list>
     </recent_temporary>
   </component>
@@ -107,11 +107,11 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.java</url>
-          <line>174</line>
-          <properties class="no.oslomet.cs.algdat.Eksamen.EksamenSBinTre" method="nestePostorden">
+          <line>157</line>
+          <properties class="no.oslomet.cs.algdat.Eksamen.EksamenSBinTre" method="førstePostorden">
             <option name="EMULATED" value="true" />
           </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -208,28 +208,30 @@ public class EksamenSBinTre<T> {
        }*/
 
         Node<T> forelder= p.forelder;
-        // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
-        //Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
-        if (p.forelder== null) {
-            p=null;
-            return p;
-        }
-        //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
-        if(forelder.høyre== p){
-            return forelder;
-        }
-        //Hvis p er venstre barn til sin forelder f, gjelder:
-        if(p == forelder.venstre){
-            //Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
-            if(forelder.høyre == null){
-                return forelder;
+
+            // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
+            //Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
+            if (p.forelder == null) {
+                p = null;
+                return p;
             }
-            //Hvis p ikke er enebarn (dvs. f.høyre er ikke null),
-            // så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
-            else{
-                return forelder.høyre;
+            //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+            else if (forelder.høyre == p) {
+                return forelder;//riktig
             }
-        }
+            //Hvis p er venstre barn til sin forelder f, gjelder:
+            else if (p == forelder.venstre) {
+                //Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
+                if (forelder.høyre == null) {
+                    return forelder;
+                }
+                //Hvis p ikke er enebarn (dvs. f.høyre er ikke null),
+                // så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
+                else if(forelder.høyre!= null) {
+                    return forelder.høyre;
+                }
+            }
+
 
         return p;
     }
