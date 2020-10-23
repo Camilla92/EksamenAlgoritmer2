@@ -315,9 +315,15 @@ public class EksamenSBinTre<T> {
 
     public ArrayList<T> serialize() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
+        // Metodene skal henholdsvis serialisere (lage et kompakt format egnet for lagring til f.eks. fil - array)
+       // Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
+        // Arrayet som returneres av serialize skal inneholde verdiene i alle nodene i nivå orden.
     }
 
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
+
+        // og deserialisere (lage et nytt tre ut ifra et array).
+        // Deserialize skal da ta dette arrayet, og legge inn alle verdiene (igjen i nivå orden), og dermed gjenskape treet.
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
