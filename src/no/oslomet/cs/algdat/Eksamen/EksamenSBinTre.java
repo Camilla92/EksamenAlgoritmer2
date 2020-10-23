@@ -204,7 +204,31 @@ public class EksamenSBinTre<T> {
     }
 
     public void nullstill() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        /*Den skal traversere (rekursivt eller iterativt) treet i ​en eller annen
+        rekkefølge og sørge for at samtlige pekere og nodeverdier i treet blir nullet.
+         Det er med andre ord ikke tilstrekkelig å sette ​rot​ til ​null​ og ​antall​ til 0.
+         hentet fra kompendiet 5.2.8 (5)
+         */
+        
+        if (!tom()) nullstill();  // nullstiller
+        rot = null; antall = 0;      // treet er nå tomt
+    }
+    //hjelpemetode oppgave 6
+    //hentet fra kompendiet 5.2.8 (5)
+    private void nullstill(Node<T> p)
+    {
+
+        if (p.venstre != null)
+        {
+            nullstill(p.venstre);      // venstre subtre
+            p.venstre = null;          // nuller peker
+        }
+        if (p.høyre != null)
+        {
+            nullstill(p.høyre);        // høyre subtre
+            p.høyre = null;            // nuller peker
+        }
+        p.verdi = null;              // nuller verdien
     }
 
     //oppgave 3
