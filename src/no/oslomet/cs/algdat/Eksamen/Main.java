@@ -1,5 +1,6 @@
 package no.oslomet.cs.algdat.Eksamen;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Main {
@@ -87,6 +88,13 @@ public class Main {
         System.out.println(tre7.fjern(2));
         System.out.println(tre7.antall());
         System.out.println(tre7+" "+tre7.serialize());
+        ArrayList<Integer> liste= new ArrayList<>();
+        EksamenSBinTre<Integer> tre8 = EksamenSBinTre.deserialize(liste, Comparator.naturalOrder());
+        System.out.println(tre8.deserialize(liste, Comparator.naturalOrder()));
+        for(int verdier: siste){
+            tre8.leggInn(verdier);
+        }
+        System.out.println(tre8.antall()); //utskrift 11
 
     }
 }

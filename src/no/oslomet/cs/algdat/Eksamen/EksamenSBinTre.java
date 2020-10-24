@@ -515,12 +515,17 @@ public class EksamenSBinTre<T> {
         //throw new UnsupportedOperationException("Ikke kodet ennå!");
         //kø.add(rot);                     // legger inn roten
 
-
-
-        EksamenSBinTre<K> tre= new EksamenSBinTre<K>(c);
+        //oppretter et tre av instansen EksamenSBinTre
+        EksamenSBinTre<K> tre = new EksamenSBinTre<K>(c);
+        //går igjennom arraylisten og legger inn i treet etter leggInn metoden.
+        for (K liste : data) {
+            tre.leggInn(liste);
+        }
+        //returnerer treet. 
+        return tre;
         //tre.leggInn((K)rot);
 
-        Node<K> p= null;
+       /* Node<K> p= null;
 
 
         while (!data.isEmpty())                    // så lenge som køen ikke er tom
@@ -538,9 +543,11 @@ public class EksamenSBinTre<T> {
         }
 
         return tre;
+
+
+    }*/
+
+
     }
-
-
-
 
 } // ObligSBinTre

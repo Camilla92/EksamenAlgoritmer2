@@ -115,9 +115,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.EksamenTest.oppgave6" />
-        <item itemvalue="JUnit.EksamenTest" />
         <item itemvalue="JUnit.EksamenTest.oppgave5" />
+        <item itemvalue="JUnit.EksamenTest" />
+        <item itemvalue="JUnit.EksamenTest.oppgave6" />
       </list>
     </recent_temporary>
   </component>
@@ -148,6 +148,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.java</url>
+          <line>530</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/EksamenAlgoritmer$Main.ic" NAME="Main Coverage Results" MODIFIED="1603487895933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
