@@ -74,5 +74,19 @@ public class Main {
 
         System.out.println(tre6.serialize());  // Utskrift: E I B G A H K L O D N M C J F
 
+        //test for oppgave 6
+        System.out.println("Oppgave 6");
+        int[]siste = {4,7,2,9,4,10,8,7,4,6,1};
+        EksamenSBinTre<Integer> tre7= new EksamenSBinTre<>(Comparator.naturalOrder());
+        for(int verdier: siste){
+            tre7.leggInn(verdier);
+        }
+        System.out.println(tre7.fjernAlle(4));
+        System.out.println(tre7.fjernAlle(7));
+        System.out.println(tre7.fjernAlle(8));
+        System.out.println(tre7.fjern(2));
+        System.out.println(tre7.antall());
+        System.out.println(tre7+" "+tre7.serialize());
+
     }
 }

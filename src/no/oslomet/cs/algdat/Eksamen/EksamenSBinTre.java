@@ -119,7 +119,7 @@ public class EksamenSBinTre<T> {
     public boolean fjern(T verdi) {
         //kode fra kompendiet: 5.2.8 d)
         if (verdi == null) return false;  // treet har ingen nullverdier
-
+        //gjør endringene som skal til med forelderpeker
         Node<T> p = rot, forelder = p.forelder;   // forelder skal være forelder til p
 
         while (p != null)            // leter etter verdi
@@ -136,7 +136,11 @@ public class EksamenSBinTre<T> {
             Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
             if (p == rot) rot = b;
             else if (p == forelder.venstre) forelder.venstre = b;
+            else if(p.forelder== null){
+                p=rot;
+            }
             else forelder.høyre = b;
+           // if (b!=null) b.forelder = forelder;
         }
         else  // Tilfelle 3)
         {
@@ -155,6 +159,76 @@ public class EksamenSBinTre<T> {
 
         antall--;   // det er nå én node mindre i treet
         return true;
+
+
+        //kode fra kompendiet 5.2.11(6)
+        /*Node<T> p = rot, forelder = p.forelder;
+        if (forelder == null) throw new IllegalStateException("Fjerning er ulovlig!");
+
+        if (forelder.høyre == null)                     // Tilfelle 1)
+        {
+            // hvis q har et venstre barn, vil det når q
+            // fjernes få ny forelder
+
+            if (forelder.venstre != null)
+            {
+                forelder.venstre.forelder = forelder.forelder;     // ny forelder
+            }
+
+            if (p == null)                         // Tilfelle 1a)
+            {
+                if (forelder == rot)                        // q er lik roten
+                {
+                    rot = forelder.venstre;                   // q fjernes
+                }
+                else                                 // q ligger nede i treet
+                {
+                    forelder.forelder.høyre = forelder.venstre;      // q fjernes
+                }
+            }
+            else // p != null                      // Tilfelle 1b)
+            {
+                if (forelder == p.venstre)                  // p.venstre har ikke høyre subtre
+                {
+                    p.venstre = forelder.venstre;             // q fjernes
+                }
+                else                                 // q ligger i subtreet
+                {
+                    forelder.forelder.høyre = forelder.venstre;      // q fjernes
+                }
+            }
+        }
+        else // q.høyre != null                  // Tilfelle 2)
+        {
+            forelder.verdi = p.verdi;                     // kopierer
+
+            // hvis p har et høyre barn, vil det når p
+            // fjernes få en ny forelder
+
+            if (p.høyre != null)
+            {
+                p.høyre.forelder = p.forelder;       // ny forelder
+            }
+
+            if (forelder.høyre == p)                      // q.høyre har ikke venstre barn
+            {
+                forelder.høyre = p.høyre;                   // fjerner p
+            }
+            else                                   // q.høyre har venstre barn
+            {
+                p.forelder.venstre = p.høyre;        // fjerner p
+            }
+
+            p = forelder;                                 // setter p tilbake til q
+        }
+
+
+        forelder = null;                // q settes til null
+        endringer++;             // en endring i treet
+        antall--;                // en verdi mindre i treet
+        return true;
+
+         */
     }
 
     //oppgave 6
@@ -209,8 +283,8 @@ public class EksamenSBinTre<T> {
          Det er med andre ord ikke tilstrekkelig å sette ​rot​ til ​null​ og ​antall​ til 0.
          hentet fra kompendiet 5.2.8 (5)
          */
-        
-        if (!tom()) nullstill();  // nullstiller
+
+        if (!tom()) nullstill(rot);  // nullstiller
         rot = null; antall = 0;      // treet er nå tomt
     }
     //hjelpemetode oppgave 6

@@ -51,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EksamenTest.oppgave6">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="no.oslomet.cs.algdat.Eksamen.Main" />
       <module name="EksamenAlgoritmer" />
@@ -114,9 +114,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.EksamenTest.oppgave6" />
         <item itemvalue="JUnit.EksamenTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.EksamenTest.oppgave5" />
       </list>
     </recent_temporary>
