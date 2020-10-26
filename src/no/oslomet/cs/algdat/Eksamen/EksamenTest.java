@@ -4,6 +4,8 @@ package no.oslomet.cs.algdat.Eksamen;
 ////// Testprogram for mappeeksamen ////////////////////////
 
 import no.oslomet.cs.algdat.Eksamen.EksamenSBinTre;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,11 +14,16 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+
 
 public class EksamenTest {
 
     // OPPGAVE 1 ////////////////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    @Test
+
+
     void oppgave1() {
         int antallFeil = 0;
         EksamenSBinTre<Integer> tre =
@@ -163,7 +170,7 @@ public class EksamenTest {
 
 
     // OPPGAVE 4 ////////////////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    @Test
     void oppgave4() {
         EksamenSBinTre<Integer> tre =
                 new EksamenSBinTre<>(Comparator.naturalOrder());
@@ -189,7 +196,7 @@ public class EksamenTest {
 
 
     // OPPGAVE 5 ////////////////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    @Test
     void oppgave5() {
         EksamenSBinTre<Integer> tre =
                 new EksamenSBinTre<>(Comparator.naturalOrder());
@@ -208,7 +215,7 @@ public class EksamenTest {
 
 
     // OPPGAVE 6 ////////////////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    @Test
     void oppgave6() {
         int antallFeil = 0;
 

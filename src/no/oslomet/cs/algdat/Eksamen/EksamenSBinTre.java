@@ -477,7 +477,8 @@ public class EksamenSBinTre<T> {
         ArrayList<T> liste= new ArrayList<>();
         //Kø<Node<T>> kø = new TabellKø<>();   // Se Avsnitt 4.2.2
         kø.add(rot);                     // legger inn roten
-            liste.add((T) rot);
+        liste.add((T) rot.verdi);
+        //Integer høyre= p.høyre;
 
 
             while (!kø.isEmpty())                    // så lenge som køen ikke er tom
@@ -488,11 +489,11 @@ public class EksamenSBinTre<T> {
 
                 if (p.venstre != null) {
                     kø.add(p.venstre);
-                    liste.add((T) p.venstre);
+                    liste.add((T) p.venstre.verdi);
                 }
                 if (p.høyre != null) {
                     kø.add(p.høyre);
-                    liste.add((T) p.høyre);
+                    liste.add((T) p.høyre.verdi);
                 }
         }
 
@@ -521,7 +522,7 @@ public class EksamenSBinTre<T> {
         for (K liste : data) {
             tre.leggInn(liste);
         }
-        //returnerer treet. 
+        //returnerer treet.
         return tre;
         //tre.leggInn((K)rot);
 
