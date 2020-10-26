@@ -99,9 +99,9 @@ public class Main {
 
         //oppgave 6
         System.out.println("oppgave 6");
-        tre5.fjern(4);
+        tre5.fjern(9);
 
-        tre5.fjernAlle(4);
+        System.out.println(tre5.fjernAlle(4));
         tre5.postorden(c -> System.out.print(c + " "));
 
         System.out.println();
