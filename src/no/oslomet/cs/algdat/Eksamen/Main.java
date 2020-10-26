@@ -103,6 +103,11 @@ public class Main {
 
         tre5.fjernAlle(4);
         tre5.postorden(c -> System.out.print(c + " "));
-        
+
+        System.out.println();
+        tre5.nullstill();
+        System.out.println("nullstilt tre kommer her ");
+        tre5.postorden(c -> System.out.print(c + " "));
+        System.out.println(tre5.serialize());
     }
 }

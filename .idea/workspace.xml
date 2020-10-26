@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EksamenAlgoritmer/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EksamenAlgoritmer/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EksamenAlgoritmer/no/oslomet/cs/algdat/Eksamen/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EksamenAlgoritmer/no/oslomet/cs/algdat/Eksamen/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +64,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EksamenTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="no.oslomet.cs.algdat.Eksamen.Main" />
       <module name="EksamenAlgoritmer" />
@@ -128,8 +127,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EksamenTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.EksamenTest" />
         <item itemvalue="JUnit.EksamenTest.oppgave5" />
         <item itemvalue="JUnit.EksamenTest.oppgave6" />
       </list>
@@ -146,7 +145,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603199546064</updated>
       <workItem from="1603199549760" duration="197000" />
-      <workItem from="1603699964918" duration="3367000" />
+      <workItem from="1603699964918" duration="3607000" />
     </task>
     <servers />
   </component>
