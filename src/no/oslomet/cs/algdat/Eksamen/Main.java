@@ -75,8 +75,8 @@ public class Main {
 
         System.out.println(tre6.serialize());  // Utskrift: E I B G A H K L O D N M C J F
 
-        //test for oppgave 6
-        System.out.println("Oppgave 6");
+        //test for oppgave 5 del 2
+        System.out.println("Oppgave 5 del 2");
         int[]siste = {4,7,2,9,4,10,8,7,4,6,1};
         EksamenSBinTre<Integer> tre7= new EksamenSBinTre<>(Comparator.naturalOrder());
         for(int verdier: siste){
@@ -96,5 +96,13 @@ public class Main {
         }
         System.out.println(tre8.antall()); //utskrift 11
 
+
+        //oppgave 6
+        System.out.println("oppgave 6");
+        tre5.fjern(4);
+
+        tre5.fjernAlle(4);
+        tre5.postorden(c -> System.out.print(c + " "));
+        
     }
 }

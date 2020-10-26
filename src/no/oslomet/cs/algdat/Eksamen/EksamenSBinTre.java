@@ -284,8 +284,16 @@ public class EksamenSBinTre<T> {
          hentet fra kompendiet 5.2.8 (5)
          */
 
-        if (!tom()) nullstill(rot);  // nullstiller
+        if (!tom()) {
+            nullstill(rot);  // nullstiller
+
+        }
         rot = null; antall = 0;      // treet er nå tomt
+
+
+
+
+
     }
     //hjelpemetode oppgave 6
     //hentet fra kompendiet 5.2.8 (5)
