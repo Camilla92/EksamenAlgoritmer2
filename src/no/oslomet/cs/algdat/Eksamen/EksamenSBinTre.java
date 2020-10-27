@@ -433,7 +433,34 @@ public class EksamenSBinTre<T> {
             Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
             Hvis p ikke er enebarn (dvs. f.høyre er ikke null), så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
          */
-      
+        // Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
+        Node<T> forelder= p.forelder;
+        // Node<T> returner= p;
+        if(forelder==null){
+            // returner=p;
+            return p;
+        }
+        //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+        else if(p == forelder.høyre){
+            //returner=forelder;
+            return forelder;
+        }
+        else if(p==forelder.venstre) {
+            //Hvis p er venstre barn til sin forelder f, gjelder:
+            //Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
+            if (forelder.høyre == null) {
+                //returner= forelder;
+                return forelder;
+            } else if (forelder.høyre != null) {
+                //Hvis p ikke er enebarn (dvs. f.høyre er ikke null),
+                // så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
+                return førstePostorden(forelder.høyre);
+            }
+        }
+        return p;
+
+
+
 
     }
     //oppgave 4
