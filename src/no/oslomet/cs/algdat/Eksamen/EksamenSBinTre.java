@@ -235,9 +235,14 @@ public class EksamenSBinTre<T> {
     public int fjernAlle(T verdi) {
         //kode fra kompendiet: 5.2.8 (3)
         int verdiAntall = 0;
+        if(verdi == null){
+            return 0;
+        }
         while (fjern(verdi)) {
             verdiAntall++;
         }
+
+
 
         return verdiAntall;
         /*Den skal fjerne alle forekomstene av ​verdi​ i treet.
@@ -333,7 +338,7 @@ public class EksamenSBinTre<T> {
     //oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
         //nestePostorden skal returnere den noden som kommer etter​ p ​i​ postorden.​
-       /* if(førstePostorden(p)!=null){
+       /*if(førstePostorden(p)!=null){
             if (førstePostorden(p).venstre != null) p = p.venstre;
             else if (førstePostorden(p).høyre != null) p = p.høyre;
             //returnerer p.
@@ -346,12 +351,12 @@ public class EksamenSBinTre<T> {
         }
 
         return p;*/
-      /* Node <T> forrige= førstePostorden(p);
+       /*Node <T> forrige= førstePostorden(p);
        int cmp = 0;
        while(p!=null) {
            //p må flyttes.
 
-           if(forrige!=)
+           //if(forrige!=)
            if (p.høyre == p.forelder) {
                return p;
            }
@@ -364,9 +369,13 @@ public class EksamenSBinTre<T> {
 
            break;
 
-       }*/
+       }
 
-        Node<T> forelder= p.forelder;
+       return p;
+
+        */
+
+       /*  Gir grønn kjøring: Node<T> forelder= p.forelder;
 
             // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
             //Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
@@ -392,7 +401,8 @@ public class EksamenSBinTre<T> {
                     return forelder.høyre;
                 }
             }*/
-        if (forelder.høyre == null || p == forelder.høyre) {
+
+        /*if (forelder.høyre == null || p == forelder.høyre) {
             p = forelder;
         }
         else
@@ -411,7 +421,20 @@ public class EksamenSBinTre<T> {
         }
 
 
-        return p;
+        return p;*/
+
+        /*
+        Postorden:
+
+            Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
+
+            Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+            Hvis p er venstre barn til sin forelder f, gjelder:
+            Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
+            Hvis p ikke er enebarn (dvs. f.høyre er ikke null), så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
+         */
+      
+
     }
     //oppgave 4
     public void postorden(Oppgave<? super T> oppgave) {

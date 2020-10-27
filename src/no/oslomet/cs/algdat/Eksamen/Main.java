@@ -53,6 +53,7 @@ public class Main {
         //System.out.println(tre5.);
         System.out.println(tre5.toStringPostOrder());
 
+
         //test for oppgave 4
         System.out.println("Oppgave 4, del 1 ");
         tre5.postorden(c -> System.out.print(c + " "));
@@ -100,8 +101,8 @@ public class Main {
         //oppgave 6
         System.out.println("oppgave 6");
         tre5.fjern(9);
-
-        System.out.println(tre5.fjernAlle(4));
+        tre5.fjernAlle(4);
+        //System.out.println(tre5.fjernAlle(4));
         tre5.postorden(c -> System.out.print(c + " "));
 
         System.out.println();

@@ -300,6 +300,8 @@ public class EksamenTest {
             System.out.println("Oppgave 6j: Feil i fjern(T)!");
         }
 
+
+
         tre.fjern(10);
         tre.fjern(11);
         tre.fjern(8);
