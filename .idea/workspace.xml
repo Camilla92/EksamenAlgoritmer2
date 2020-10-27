@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9475276-a8ea-4174-9d11-a55a3967dd09" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EksamenAlgoritmer/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EksamenAlgoritmer/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Eksamen/EksamenSBinTre.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -146,7 +144,7 @@
       <workItem from="1603199549760" duration="197000" />
       <workItem from="1603699964918" duration="4449000" />
       <workItem from="1603720801212" duration="8495000" />
-      <workItem from="1603790264111" duration="2012000" />
+      <workItem from="1603790264111" duration="2145000" />
     </task>
     <servers />
   </component>
