@@ -120,7 +120,7 @@ public class EksamenSBinTre<T> {
         //kode fra kompendiet: 5.2.8 d)
         if (verdi == null) return false;  // treet har ingen nullverdier
         //gjør endringene som skal til med forelderpeker
-        Node<T> p = rot, forelder = p.forelder;   // forelder skal være forelder til p
+        Node<T> p = rot, forelder = null;   // forelder skal være forelder til p
 
         while (p != null)            // leter etter verdi
         {
@@ -140,7 +140,7 @@ public class EksamenSBinTre<T> {
                 p=rot;
             }
             else forelder.høyre = b;
-           // if (b!=null) b.forelder = forelder;
+
         }
         else  // Tilfelle 3)
         {
