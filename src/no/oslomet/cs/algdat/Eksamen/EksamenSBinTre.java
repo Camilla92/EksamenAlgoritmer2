@@ -438,7 +438,7 @@ public class EksamenSBinTre<T> {
         // Node<T> returner= p;
         if(forelder==null){
             // returner=p;
-            return p;
+            return null;
         }
         //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
         else if(p == forelder.høyre){
