@@ -118,7 +118,7 @@ public class EksamenSBinTre<T> {
     //oppgave 6
     public boolean fjern(T verdi) {
         //kode fra kompendiet: 5.2.8 d)
-        //må sjekke om treet er tomt.
+        //må sjekke om treet er tomt først.
         if(tom()){
             return false;
         }
@@ -455,12 +455,8 @@ public class EksamenSBinTre<T> {
 
     //oppgave 5
     static <K> EksamenSBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
-
-
         // og deserialisere (lage et nytt tre ut ifra et array).
         // Deserialize skal da ta dette arrayet, og legge inn alle verdiene (igjen i nivå orden), og dermed gjenskape treet.
-        //throw new UnsupportedOperationException("Ikke kodet ennå!");
-        //kø.add(rot);                     // legger inn roten
 
         //oppretter et tre av instansen EksamenSBinTre
         EksamenSBinTre<K> tre = new EksamenSBinTre<K>(c);
@@ -470,30 +466,6 @@ public class EksamenSBinTre<T> {
         }
         //returnerer treet.
         return tre;
-        //tre.leggInn((K)rot);
-
-       /* Node<K> p= null;
-
-
-        while (!data.isEmpty())                    // så lenge som køen ikke er tom
-        {
-
-
-            if (p.venstre != null) {
-
-                tre.leggInn((K) p.venstre);
-            }
-            if (p.høyre != null) {
-
-                tre.leggInn((K) p.høyre);
-            }
-        }
-
-        return tre;
-
-
-    }*/
-
 
     }
 
