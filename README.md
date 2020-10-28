@@ -36,13 +36,13 @@ Deretter settes p til å være høyre barnet til p.
 Tilslutt returneres antallVerdi. 
 
 ### Oppgave 3:
-førstePostorden
+- førstePostorden
 Går gjennom while løkken til den er false. 
 Sjekker så om p sitt venstre barn ikke er null. Setter så p til å være p sitt venstre barn. 
 Sjekker så om p sitt høyre barn ikke er null. Setter så å p til å være p sitt høyre barn. 
 Hvis p sitt venstrebarn og p sitt høyrebarn er null så returneres p. 
 
-nestePostorden
+- nestePostorden
 Kompendiet 5.1.7:
 Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
 Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
@@ -50,7 +50,49 @@ Hvis p er venstre barn til sin forelder f, gjelder:
 Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
 Hvis p ikke er enebarn (dvs. f.høyre er ikke null), så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
 
-
 ### Oppgave 4:
+- postorden
+Sjekker først om treet er tomt. Oppretter node p til å være lik rot. 
+Går så gjennom treet så lenge while løkken er sann, sjekker om p sitt venstre barn ikke er lik null. 
+Setter så p til å være p sitt venstre barn. Sjekker så om p sitt høyre barn ikke er null. Setter så p til å være lik p sitt høyre barn.
+Hvis ikke så skal løkken avsluttes. Deretter utføres det en oppgave som i dette tilfellet er en utskrift. 
+Går igjennom løkken til løkken er false.Sjekker om p er lik rot, hvis den er det avsluttes løkken. 
+Deretter lages det en ny node f til å være p.forelder. Sjekker som om f.høyre er null eller om p er lik f.høyre. 
+Deretter skal while løkken gå så lenge den er true, og sjekk om p.venstre ikke er lik null. 
+Sette p til å være p.venstre. Hvis p.høyre ikke er null settes p til p.høyre. Hvis ikke skal while løkken avsluttes og det skal utføres en oppgave som i dette tilfellet er en utskrift. 
+
+-postordenRecursive
+Sjekker først basistilfellet: hvis p er lik null så skal metoden returnere.
+Dereetter kalles metoden med p.venstre som parameter
+Dereetter kalles metoden med p.høyre som parameter
+Deretter skrives oppgaven ut ved hjelp av oppgave. 
+
 ### Oppgave 5:
+- Serialize
+Oppretter først en ArrayDeque og en arraylist. Legger så til roten i begge listene. 
+Går igjennom dequeListen kø så lenge den ikke er tom. Tar så en ut av ArrayQueue kø ved hjelp av pop metoden. 
+Sjekker så at p sitt venstre barn ikke er lik null. Legger så inn p sitt venstre barn i ArrayDeque og i arraylist. 
+Sjekker så om p sitt høyre barn ikke er lik nul. Legger så inn å sitt venstre barn i arraydeque og arraylist.
+Returnerer så arraylisten. 
+
+- Deserialize
+Oppretter et tre av instansen EksamenSBinTre. Går igjennom arraylisten og legger inn i treet etter leggInn metoden.
+Returnerer så treet av instansen EksamenSBinTre. 
+
 ### Oppgave 6:
+- fjern(T verdi)
+Sjekker om treet er tomt først, hvis det er tomt så skal den returnere false.
+Deretter sjekkes det om verdien er lik null, da skal metoden returnere false. 
+Deretter settes noden p til å være rot og forelder til å være null.
+Går igjjenom treet helt til å er null. Sammenligner deretter verdi med p.verdi. 
+Bytter så plass på forelder, slik at den er rotverdi, bytter plass på p, slik at p er venstrebarnet til p.
+Bytter plass på forelder, slik at forelder er rotverdien, bytter plass på p, slik at p er høyrebarnet til p.
+Hvis p er lik null, returneres det false. Hvis verdien ikke finnes returneres det false. 
+Metoden sjekker deretter tilfellene 1,2 og 3
+1. p har ingen barn ( p er en bladnode)
+2. p har nøyaktig ett barn (venstre eller høyre barn)
+3. p har to barn
+Tilslutt minskes antall med en og metoden returnerer true. 
+
+- fjernAlle(T verdi)
+- nullstill()
