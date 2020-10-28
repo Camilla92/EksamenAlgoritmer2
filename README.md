@@ -26,12 +26,22 @@ Dette gjør at p flytter seg til venstre eller høyre i treet. Setter så Q til 
 Sjekker om Q er null, setter så rot til å være p. Sjekker så om cmp er mindre enn 0, setter så q.venstre til å være p. 
 Hvis ikke settes q.høyre til p. Deretter økes antallet og endringer og returnerer true. 
 
-
-
 ### Oppgave 2:
-- 
+- antall(T verdi)
+Setter node p til å være lik rot. Oppretter integer variablen antallVerdi. 
+Går gjennom treet så lenge p ikke er null. Oppretter en compare variabel cmp. 
+Sjekker om cmp er mindre enn 0, setter så p til å være venstre barnet til p. 
+Hvis ikke det, så sjekker man om cmp er lik 0, og øker antallVerdi med en. 
+Deretter settes p til å være høyre barnet til p. 
+Tilslutt returneres antallVerdi. 
 
 ### Oppgave 3:
+Går gjennom while løkken til den er false. 
+Sjekker så om p sitt venstre barn ikke er null. Setter så p til å være p sitt venstre barn. 
+Sjekker så om p sitt høyre barn ikke er null. Setter så å p til å være p sitt høyre barn. 
+Hvis p sitt venstrebarn og p sitt høyrebarn er null så returneres p. 
+
+
 ### Oppgave 4:
 ### Oppgave 5:
 ### Oppgave 6:

@@ -260,7 +260,7 @@ public class EksamenSBinTre<T> {
         return antallVerdi;
 
     }
-
+    //oppgave 6
     public void nullstill() {
         /*Den skal traversere (rekursivt eller iterativt) treet i ​en eller annen
         rekkefølge og sørge for at samtlige pekere og nodeverdier i treet blir nullet.
