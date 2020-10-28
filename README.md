@@ -83,8 +83,8 @@ Returnerer så treet av instansen EksamenSBinTre.
 - fjern(T verdi)
 Sjekker om treet er tomt først, hvis det er tomt så skal den returnere false.
 Deretter sjekkes det om verdien er lik null, da skal metoden returnere false. 
-Deretter settes noden p til å være rot og forelder til å være null.
-Går igjjenom treet helt til å er null. Sammenligner deretter verdi med p.verdi. 
+Deretter settes noden p til p være rot og forelder til å være null.
+Går igjjenom treet helt til p er null. Sammenligner deretter verdi med p.verdi. 
 Bytter så plass på forelder, slik at den er rotverdi, bytter plass på p, slik at p er venstrebarnet til p.
 Bytter plass på forelder, slik at forelder er rotverdien, bytter plass på p, slik at p er høyrebarnet til p.
 Hvis p er lik null, returneres det false. Hvis verdien ikke finnes returneres det false. 
