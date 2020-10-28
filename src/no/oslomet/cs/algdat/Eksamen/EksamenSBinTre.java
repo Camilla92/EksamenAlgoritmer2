@@ -125,35 +125,52 @@ public class EksamenSBinTre<T> {
         while (p != null)            // leter etter verdi
         {
             int cmp = comp.compare(verdi,p.verdi);      // sammenligner
+            //bytter plass på forelder, slik at den er rotverdi, bytter plass på p, slik at p er venstrebarnet til p.
             if (cmp < 0) { forelder = p; p = p.venstre; }      // går til venstre
+            //byter plass på forelder, slik at forelder er rotverdien, bytter plass på p, slik at p er høyrebarnet til p.
             else if (cmp > 0) { forelder = p; p = p.høyre; }   // går til høyre
-            else break;    // den søkte verdien ligger i p
-        }
-        if (p == null) return false;   // finner ikke verdi
+            //hvis p er lik null, returnerer den false.
+            else if (p == null) return false;   // finner ikke verdi
 
+            else break;    // den søkte verdien ligger i p (verdi er rotnoden)
+        }
+
+
+        //hvis p ikke har venstre barn eller høyre barn:
         if (p.venstre == null || p.høyre == null)  // Tilfelle 1) og 2)
         {
             Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
-            if (p == rot) rot = b;
-            else if (p == forelder.venstre) forelder.venstre = b;
-            else if(p.forelder== null){
-                p=rot;
-            }
-            else forelder.høyre = b;
+                //setter rot referansen til å være b
+                if (p == rot) rot = b;
+                //hvis p er lik forelder sitt venstre barn, settes forelder sitt venstre barn til å være b.
+                else if (p == forelder.venstre) forelder.venstre = b;
+                //hvis p sin forelder er lik null, settes p lik rot.
+                else if (p.forelder == null) {
+                    p = rot;
+                }
+                //hvis ikke så settes forelder sitt høyrebarn til å være b.
+                else forelder.høyre = b;
+
+
 
         }
+        //p har to barn
         else  // Tilfelle 3)
         {
+
             Node<T> s = p, r = p.høyre;   // finner neste i inorden
+            //går i gjennom helt til r sitt venstre barn er null
             while (r.venstre != null)
             {
+
                 s = r;    // s er forelder til r
                 r = r.venstre;
             }
-
+            //Da erstattes verdien til p med verdien til etterfølgeren til p i inorden
             p.verdi = r.verdi;   // kopierer verdien i r til p
-
+            //sjekker at s og p er ulike.  Setter man s sitt venstrebarn peker til å være r sitt høyrebarn.
             if (s != p) s.venstre = r.høyre;
+            //hvis ikke så settes s sitt høyre barn til å være r sitt høyrebarn.
             else s.høyre = r.høyre;
         }
 
@@ -294,10 +311,6 @@ public class EksamenSBinTre<T> {
 
         }
         rot = null; antall = 0;      // treet er nå tomt
-
-
-
-
 
     }
     //hjelpemetode oppgave 6
