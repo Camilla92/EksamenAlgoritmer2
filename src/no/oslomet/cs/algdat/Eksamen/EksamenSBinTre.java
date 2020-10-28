@@ -118,7 +118,11 @@ public class EksamenSBinTre<T> {
     //oppgave 6
     public boolean fjern(T verdi) {
         //kode fra kompendiet: 5.2.8 d)
-        if (verdi == null) return false;  // treet har ingen nullverdier
+        //må sjekke om treet er tomt.
+        if(tom()){
+            return false;
+        }
+        else if (verdi == null) return false;  // treet har ingen nullverdier
         //gjør endringene som skal til med forelderpeker
         Node<T> p = rot, forelder = p.forelder;   // forelder skal være forelder til p
 
@@ -130,14 +134,15 @@ public class EksamenSBinTre<T> {
             //byter plass på forelder, slik at forelder er rotverdien, bytter plass på p, slik at p er høyrebarnet til p.
             else if (cmp > 0) { forelder = p; p = p.høyre; }   // går til høyre
             //hvis p er lik null, returnerer den false.
-            else if (p == null) return false;   // finner ikke verdi
+
 
             else break;    // den søkte verdien ligger i p (verdi er rotnoden)
         }
 
-
+        //finner ikke verdien.
+        if (p == null) return false;
         //hvis p ikke har venstre barn eller høyre barn:
-        if (p.venstre == null || p.høyre == null)  // Tilfelle 1) og 2)
+        else if (p.venstre == null || p.høyre == null)  // Tilfelle 1) og 2)
         {
             Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
                 //setter rot referansen til å være b
@@ -251,16 +256,23 @@ public class EksamenSBinTre<T> {
     //oppgave 6
     public int fjernAlle(T verdi) {
         //kode fra kompendiet: 5.2.8 (3)
+        if(tom()){
+            return 0;
+        }
+        //setter antall til å være 0
         int verdiAntall = 0;
+        //sjekker om verdi har nullverdier og returnerer 0
         if(verdi == null){
             return 0;
         }
+        //går så lenge fjern(verdi) er sann.
         while (fjern(verdi)) {
+            //legger på en for hver verdi som blir fjernet.
             verdiAntall++;
         }
 
 
-
+        //returnerer antall ganger verdien har blitt fjernet.
         return verdiAntall;
         /*Den skal fjerne alle forekomstene av ​verdi​ i treet.
          Husk at duplikater er tillatt.
@@ -282,16 +294,25 @@ public class EksamenSBinTre<T> {
         // Hvis ​verdi​ ikke er i treet (​null​ er ikke i treet), skal metoden returnere 0.
 
         //kode fra kompendiet oppgave 5.2.6 (2)
+
+        //setter p lik rot.
         Node<T> p = rot;
+        //setter antall verdier til 0
         int antallVerdi = 0;
 
+        //går igjennom treet så lenger p ikke er lik nulll
         while (p != null)
         {
+            //sammenligner verdi med p.verdi
             int cmp = comp.compare(verdi,p.verdi);
+            //hvis cmp er mindre enn 0 er p sitt venstre barn(de er ulike).
             if (cmp < 0) p = p.venstre;
+            //hvis ikke så..
             else
             {
+                //hvis cmp er lik 0(at de er like) så skal antall forekomsten av verdien øke.
                 if (cmp == 0) antallVerdi++;
+                //setter så p til å være p sitt høyre barn.
                 p = p.høyre;
             }
         }

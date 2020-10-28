@@ -100,10 +100,20 @@ public class Main {
 
         //oppgave 6
         System.out.println("oppgave 6");
-        tre5.fjern(9);
-        tre5.fjernAlle(4);
+        System.out.println(tre5.fjern(9));
+        System.out.println(tre5.fjernAlle(4));
         //System.out.println(tre5.fjernAlle(4));
         tre5.postorden(c -> System.out.print(c + " "));
+
+        System.out.println("sistetest kommer her:");
+        int[]siste2 = {};
+        EksamenSBinTre<Integer> tre9= new EksamenSBinTre<>(Comparator.naturalOrder());
+        for(int verdier: siste2){
+            tre9.leggInn(verdier);
+        }
+        System.out.println(tre9.fjern(9));
+        System.out.println(tre9.fjernAlle(4));
+        tre9.postorden(c -> System.out.print(c + " "));
 
         System.out.println();
         tre5.nullstill();
