@@ -267,7 +267,7 @@ public class EksamenSBinTre<T> {
          Det er med andre ord ikke tilstrekkelig å sette ​rot​ til ​null​ og ​antall​ til 0.
          hentet fra kompendiet 5.2.8 (5)
          */
-
+        //sjekker at treet ikke er tomt
         if (!tom()) {
             nullstill(rot);  // nullstiller
 
@@ -280,11 +280,13 @@ public class EksamenSBinTre<T> {
     private void nullstill(Node<T> p)
     {
 
+        //sjekker om p sitt venstrebarn ikke er lik null
         if (p.venstre != null)
         {
             nullstill(p.venstre);      // venstre subtre
             p.venstre = null;          // nuller peker
         }
+        //sjekker om p sitt høyrebarn er ikke lik null
         if (p.høyre != null)
         {
             nullstill(p.høyre);        // høyre subtre
@@ -305,10 +307,7 @@ public class EksamenSBinTre<T> {
             else if (p.høyre != null) p = p.høyre;
             //returnerer p.
             else return p;
-
-
         }
-        //return p;
     }
     //oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
@@ -399,50 +398,53 @@ public class EksamenSBinTre<T> {
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        //brukt inspirasjon fra Programkode 5.1.10 a)
+        //brukt inspirasjon fra Programkode 5.1.10 a og forelesningen om recursive traversering av postorden)
+        //basistilfellet
         if(p ==null){
             return;
         }
-
+        //kallesr metoden med p.venstre som parameter
         postordenRecursive(p.venstre, oppgave);
+        //kaller metoden med med p.høyre som parameter.
         postordenRecursive(p.høyre, oppgave);
+        //skriver ut oppgaven
         oppgave.utførOppgave(p.verdi);
 
     }
 
     //oppgave 5
     public ArrayList<T> serialize() {
-
-
         //kode hentet fra kompendiet: 5.1.6 (d)
         if (tom()) return null;                   // tomt tre
         //gjort om og brukt ArrayDeque istedenfor KØ
-        // Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
+        //Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
         ArrayDeque<Node<T>> kø= new ArrayDeque<>();
-
+        //oppretter en arrayList
         ArrayList<T> liste= new ArrayList<>();
-        //Kø<Node<T>> kø = new TabellKø<>();   // Se Avsnitt 4.2.2
-        kø.add(rot);                     // legger inn roten
+        kø.add(rot);                     // legger inn roten i arraydeque
+        //legger inn roten i arrayList
         liste.add((T) rot.verdi);
-        //Integer høyre= p.høyre;
-
 
             while (!kø.isEmpty())                    // så lenge som køen ikke er tom
             {
-                //liste.add((T) rot);
                 Node<T> p = kø.pop();             // tar ut fra køen
-                // System.out.print(p.verdi + " ");   // skriver ut
 
+                //sjekker at p sitt venstre barn ikke er lik null
                 if (p.venstre != null) {
+                    //legger til p sitt venstre barn i deque
                     kø.add(p.venstre);
+                    //legger til p sitt venstre barn i arraylist.
                     liste.add((T) p.venstre.verdi);
                 }
+                //sjekker om p sitt høyre barn ikke er lik null
                 if (p.høyre != null) {
+                    //legger til p sitt høyre barn i deque
                     kø.add(p.høyre);
+                    //legger til p sitt høyre barn i arraylist.
                     liste.add((T) p.høyre.verdi);
                 }
         }
-
+        //returnerer arraylist
         return liste;
         // Metodene skal henholdsvis serialisere (lage et kompakt format egnet for lagring til f.eks. fil - array)
         // Selve metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden.
