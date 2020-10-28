@@ -95,4 +95,20 @@ Metoden sjekker deretter tilfellene 1,2 og 3
 Tilslutt minskes antall med en og metoden returnerer true. 
 
 - fjernAlle(T verdi)
+Sjekker først om treet er tomt.
+Sjekker så om verdi har nullverdier og returnerer 0
+Setter så verdiAntall til å være 0
+Whileløkken skal gå så lenger fjern(verdi) returnerer true. 
+Her skal verdiAntall økes med en for hver gang fjern(verdi) kjører. 
+Tilslutt skal metoden returnere antall ganger verdien har blitt fjernet.
+              
 - nullstill()
+Sjekker først at treet ikker er tomt og så lenge det ikke er tomt skal nullstill(Node<T> p) kalles. 
+
+- private void nullstill(Node<T> p)
+Er en hjelpemetode oppgave 6
+Den sjekker først om p sitt venstrebarn ikke er lik null.
+Deretter kalles nullstill med venstre subtre og metoden setter p.venstre lik null. 
+Deretter sjekkes det om p sitt høyrebarn ikke er lik null 
+Deretter kalles nullstill med høyre subtre og metoden setter p.høyre lik null.  
+Tilslutt settes p.verdi til null.      
