@@ -14,7 +14,7 @@ Se oblig-tekst for alle krav, og husk spesielt på følgende:
 
 # Beskrivelse av oppgaveløsning (4-8 linjer/setninger per oppgave)
 
-Jeg har brukt git til å dokumentere arbeidet mitt. Jeg har 52? commits totalt, og hver logg-melding beskriver det jeg har gjort av endringer.
+Jeg har brukt git til å dokumentere arbeidet mitt. Jeg har 58 commits totalt, og hver logg-melding beskriver det jeg har gjort av endringer.
 
 ### Oppgave 1: 
 - leggInn(T verdi): Lager to noder(p og q). Referansen P starter i roten. 

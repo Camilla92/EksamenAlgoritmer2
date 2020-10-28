@@ -41,6 +41,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -142,7 +143,7 @@
       <workItem from="1603199549760" duration="197000" />
       <workItem from="1603699964918" duration="4449000" />
       <workItem from="1603720801212" duration="8495000" />
-      <workItem from="1603790264111" duration="15058000" />
+      <workItem from="1603790264111" duration="22979000" />
     </task>
     <servers />
   </component>
