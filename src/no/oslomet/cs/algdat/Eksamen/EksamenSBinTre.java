@@ -124,7 +124,7 @@ public class EksamenSBinTre<T> {
         }
         else if (verdi == null) return false;  // treet har ingen nullverdier
         //gjør endringene som skal til med forelderpeker
-        Node<T> p = rot, forelder = p.forelder;   // forelder skal være forelder til p
+        Node<T> p = rot, forelder = null;   // forelder skal være forelder til p og p sin forelder har null verdi.
 
         while (p != null)            // leter etter verdi
         {
@@ -135,29 +135,39 @@ public class EksamenSBinTre<T> {
             else if (cmp > 0) { forelder = p; p = p.høyre; }   // går til høyre
             //hvis p er lik null, returnerer den false.
 
-
             else break;    // den søkte verdien ligger i p (verdi er rotnoden)
         }
 
         //finner ikke verdien.
         if (p == null) return false;
         //hvis p ikke har venstre barn eller høyre barn:
-        else if (p.venstre == null || p.høyre == null)  // Tilfelle 1) og 2)
+        if (p.venstre == null || p.høyre == null)  // Tilfelle 1) og 2)
         {
-            Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
-                //setter rot referansen til å være b
-                if (p == rot) rot = b;
-                //hvis p er lik forelder sitt venstre barn, settes forelder sitt venstre barn til å være b.
-                else if (p == forelder.venstre) forelder.venstre = b;
-                //hvis p sin forelder er lik null, settes p lik rot.
-                else if (p.forelder == null) {
-                    p = rot;
-                }
-                //hvis ikke så settes forelder sitt høyrebarn til å være b.
-                else forelder.høyre = b;
-
-
-
+            //hvis p.venstre ikke er lik null så er b lik p sitt venstre barn.
+            //hvis p sin venstre er lik null så skal b bli lik p sitt høyre barn.
+            //Node<T> b = p.venstre != null ? p.venstre : p.høyre;  // b for barn
+            //velger å skrive det slik, da det ser ryddigere ut og er lettere å lese.
+            Node<T> b;
+            if(p.venstre!= null){
+                b=p.venstre;
+            }
+            else{
+                b=p.høyre;
+            }
+            //forandret koden her
+            //må også sjekke at b ikke har nullverdi og sette b sin forelder til å være lik forelder.
+            if(b!=null){
+                b.forelder = forelder;
+            }
+            //setter rot referansen til å være b
+            if (p == rot) rot = b;
+            //hvis p er lik forelder sitt venstre barn, settes forelder sitt venstre barn til å være b.
+            else if (p == forelder.venstre) forelder.venstre = b;
+            //hvis p sin forelder er lik null, settes p lik rot.
+            else if (p.forelder == null) { p = rot;
+            }
+            //hvis ikke så settes forelder sitt høyrebarn til å være b.
+            else forelder.høyre = b;
         }
         //p har to barn
         else  // Tilfelle 3)
@@ -182,96 +192,27 @@ public class EksamenSBinTre<T> {
         antall--;   // det er nå én node mindre i treet
         return true;
 
-
-        //kode fra kompendiet 5.2.11(6)
-        /*Node<T> p = rot, forelder = p.forelder;
-        if (forelder == null) throw new IllegalStateException("Fjerning er ulovlig!");
-
-        if (forelder.høyre == null)                     // Tilfelle 1)
-        {
-            // hvis q har et venstre barn, vil det når q
-            // fjernes få ny forelder
-
-            if (forelder.venstre != null)
-            {
-                forelder.venstre.forelder = forelder.forelder;     // ny forelder
-            }
-
-            if (p == null)                         // Tilfelle 1a)
-            {
-                if (forelder == rot)                        // q er lik roten
-                {
-                    rot = forelder.venstre;                   // q fjernes
-                }
-                else                                 // q ligger nede i treet
-                {
-                    forelder.forelder.høyre = forelder.venstre;      // q fjernes
-                }
-            }
-            else // p != null                      // Tilfelle 1b)
-            {
-                if (forelder == p.venstre)                  // p.venstre har ikke høyre subtre
-                {
-                    p.venstre = forelder.venstre;             // q fjernes
-                }
-                else                                 // q ligger i subtreet
-                {
-                    forelder.forelder.høyre = forelder.venstre;      // q fjernes
-                }
-            }
-        }
-        else // q.høyre != null                  // Tilfelle 2)
-        {
-            forelder.verdi = p.verdi;                     // kopierer
-
-            // hvis p har et høyre barn, vil det når p
-            // fjernes få en ny forelder
-
-            if (p.høyre != null)
-            {
-                p.høyre.forelder = p.forelder;       // ny forelder
-            }
-
-            if (forelder.høyre == p)                      // q.høyre har ikke venstre barn
-            {
-                forelder.høyre = p.høyre;                   // fjerner p
-            }
-            else                                   // q.høyre har venstre barn
-            {
-                p.forelder.venstre = p.høyre;        // fjerner p
-            }
-
-            p = forelder;                                 // setter p tilbake til q
-        }
-
-
-        forelder = null;                // q settes til null
-        endringer++;             // en endring i treet
-        antall--;                // en verdi mindre i treet
-        return true;
-
-         */
     }
 
     //oppgave 6
     public int fjernAlle(T verdi) {
         //kode fra kompendiet: 5.2.8 (3)
+        //sjekker om treet er tomt.
         if(tom()){
             return 0;
         }
-        //setter antall til å være 0
-        int verdiAntall = 0;
         //sjekker om verdi har nullverdier og returnerer 0
         if(verdi == null){
             return 0;
         }
+        //setter antall til å være 0
+        int verdiAntall = 0;
+
         //går så lenge fjern(verdi) er sann.
         while (fjern(verdi)) {
             //legger på en for hver verdi som blir fjernet.
             verdiAntall++;
         }
-
-
         //returnerer antall ganger verdien har blitt fjernet.
         return verdiAntall;
         /*Den skal fjerne alle forekomstene av ​verdi​ i treet.
@@ -371,97 +312,9 @@ public class EksamenSBinTre<T> {
     }
     //oppgave 3
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        //nestePostorden skal returnere den noden som kommer etter​ p ​i​ postorden.​
-       /*if(førstePostorden(p)!=null){
-            if (førstePostorden(p).venstre != null) p = p.venstre;
-            else if (førstePostorden(p).høyre != null) p = p.høyre;
-            //returnerer p.
-            else return p;
-        }
-        else{
-            // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
-            //siste i postorden er rotnoden.
-            p = null;
-        }
-
-        return p;*/
-       /*Node <T> forrige= førstePostorden(p);
-       int cmp = 0;
-       while(p!=null) {
-           //p må flyttes.
-
-           //if(forrige!=)
-           if (p.høyre == p.forelder) {
-               return p;
-           }
-           // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
-           //siste i postorden er rotnoden.
-           else if (p.forelder == null) {
-               p = null;
-               return p;
-           }
-
-           break;
-
-       }
-
-       return p;
-
-        */
-
-       /*  Gir grønn kjøring: Node<T> forelder= p.forelder;
-
-            // Hvis​ p​ er den siste i postorden, skal metoden returnere n​ull
-            //Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
-            if (p.forelder == null) {
-                p = null;
-                return p;
-            }
-
-
-            //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
-           /* else if (forelder.høyre == p) {
-                return forelder;//riktig
-            }
-            //Hvis p er venstre barn til sin forelder f, gjelder:
-            else if (p == forelder.venstre) {
-                //Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
-                if (forelder.høyre == null) {
-                    return forelder;
-                }
-                //Hvis p ikke er enebarn (dvs. f.høyre er ikke null),
-                // så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
-                else if(forelder.høyre!= null) {
-                    return forelder.høyre;
-                }
-            }*/
-
-        /*if (forelder.høyre == null || p == forelder.høyre) {
-            p = forelder;
-        }
-        else
-        {
-            p = forelder.høyre;
-            while (true)
-            {
-                if (p.venstre != null){
-                    p = p.venstre;
-                }
-                else if (p.høyre != null){
-                    p = p.høyre;
-                }
-                else break;
-            }
-        }
-
-
-        return p;*/
-
         /*
-        Postorden:
-
+        Postorden  5.1.7:
             Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
-
             Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
             Hvis p er venstre barn til sin forelder f, gjelder:
             Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
@@ -470,9 +323,9 @@ public class EksamenSBinTre<T> {
         //hentet fra instruksene i kompendiet 5.1.7
         // Hvis p ikke har en forelder ( p er rotnoden), så er p den siste i postorden.
         Node<T> forelder= p.forelder;
-        // Node<T> returner= p;
+        //sjekker om forelder har null verdi.
         if(forelder==null){
-            // returner=p;
+            //returnerer null.
             return null;
         }
         //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
